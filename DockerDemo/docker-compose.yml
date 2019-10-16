@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  web:
+    image: "demo"
+    ports:
+      - "8080:80"
+    volumes:
+      - type: bind
+        source: "C:\\Users\\marco\\OneDrive\\Documenten\\Github\\dockerdemo\\DockerDemo\\bin\\Debug\\netcoreapp2.2\\"
+        target: /app
+    configs:
+      - my_config
+      - my_other_config
+
+  

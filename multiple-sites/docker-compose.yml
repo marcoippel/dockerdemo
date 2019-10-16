@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+    reverseproxy:
+        image: marcoippel/reverseproxy:0.1
+        ports:
+            - 80:80
+        restart: always
+        container_name: reverseproxy
+
+    web:
+        depends_on:
+            - reverseproxy
+        image: demo:latest
+        restart: always
+        container_name: web
+
+    api:
+        depends_on:
+            - reverseproxy
+        image: demoapi:latest
+        restart: always
+        container_name: api
