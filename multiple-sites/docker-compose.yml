@@ -5,19 +5,19 @@ services:
         image: marcoippel/reverseproxy:0.1
         ports:
             - 80:80
+        depends_on:
+            - web
+            - api
         restart: always
         container_name: reverseproxy
 
     web:
-        depends_on:
-            - reverseproxy
+        
         image: marcoippel/web:0.1
         restart: always
         container_name: web
 
     api:
-        depends_on:
-            - reverseproxy
         image: marcoippel/api:0.1
         restart: always
         container_name: api
