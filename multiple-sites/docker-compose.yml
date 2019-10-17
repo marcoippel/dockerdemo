@@ -11,13 +11,13 @@ services:
     web:
         depends_on:
             - reverseproxy
-        image: demo:latest
+        image: marcoippel/web:0.1
         restart: always
         container_name: web
 
     api:
         depends_on:
             - reverseproxy
-        image: demoapi:latest
+        image: marcoippel/api:0.1
         restart: always
         container_name: api
